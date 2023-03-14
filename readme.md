@@ -58,7 +58,7 @@ python3 app.py
 To test use
 
 ```bash
-python -m unittest discover
+11`
 ```
 
 # My Kanban board video
