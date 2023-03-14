@@ -38,10 +38,10 @@ To test use
 python -m unittest discover
 ```
 
-# My Kanban board video
+## My Kanban board video
 [Watch Here](https://youtu.be/mnjtM2F5LN8)
 
-#References Used
+## References Used
 1. [Tutorial](https://github.com/PrettyPrinted/youtube_video_code/tree/master/2017/03/03/Build%20a%20User%20Login%20System%20With%20Flask-Login%2C%20Flask-WTForms%2C%20Flask-Bootstrap%2C%20and%20Flask-SQLAlchemy/building_user_login_system/finish)
 
 2. https://www.youtube.com/watch?v=yKHJsLUENl0
