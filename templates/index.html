@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block styles %} 
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+    {% endblock %}
+</head>
+<body>
+{% extends "home.html" %}
+{% block title %}
+<h4> Welcome {{user.username}}</h4> 
+{% endblock %}
+{% block content %}
+<br>  
+  <div class="form">
+    <form class="" action="/add" method="post">
+        <div class="field">
+            <label>To Do Item</label>
+            <br>
+            <input type="text" name="title" placeholder="Enter a to do item" required>
+        </div>
+        <button type="submit"  class="button1" style="color: rgba(10, 10, 12, 0.734);">Add</button>
+    </form>
+    <br>
+</div>    
+    
+<div class="grid-container">
+  <div>
+    <h3>TODO</h3>
+    {% for todo in todo_list %}
+    <div class="card">
+        <div class="container">
+          <h4><b>{{todo.title}}</b></h4>
+          <a href="/update/{{ todo.id }}"><button class="button" style="color:orange;">Start</button></a>
+          <a href="/delete/{{ todo.id }}"><button class="button" style="color:red;">Delete</button></a>
+          <a href="/edit/{{ todo.id }}"><button class="button" style="color:blue;">Edit</button> </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div>
+    <h3>DOING</h3>
+    {% for doing in doing_list %}
+
+    <div class="card">
+        <div class="container">
+          <p><b>{{doing.title}}</b></p>
+          <a href="/complete/{{ doing.id }}"><button class="button" style="color:orange;">Completed</button></a>
+          <a href="/delete/{{ doing.id }}"><button class="button" style="color:red;">Delete</button></a>
+          <a href="/edit/{{ doing.id }}"><button class="button" style="color:blue;">Edit</button> </a>
+      </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div>
+    <h3>DONE</h3>
+    {%for done in done_list%}
+    <div class="card">
+        <div class="container">
+          <p><b>{{done.title}}</b></p>
+          <a href="/delete/{{ done.id }}"><button class="button" style="color:red;">Delete</button></a>
+        </div>
+       </div>
+    {% endfor %}
+  </div>  
+</div>
+{% endblock %}
+{% block section %}
+{% endblock %}
+</body>
+</html>
