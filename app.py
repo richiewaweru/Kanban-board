@@ -11,6 +11,7 @@ from datetime import datetime
 
 
 app=Flask(__name__)
+
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Tasks.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
@@ -169,10 +170,11 @@ def edit(todo_id):
     return render_template("edit.html", todo=todo)
 
 
+from socket import gethostname
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-    app.run(debug=True)
-
+    if 'liveconsole' not in gethostname():
+        app.run(debug=True)
